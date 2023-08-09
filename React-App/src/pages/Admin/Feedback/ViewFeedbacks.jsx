@@ -53,9 +53,9 @@ const ViewFeedbacks = () => {
       <Layout />
       <div className='mainx'>
 
-        <div className='shadow bg-white'>
-          <table className='data-table'>
-            <thead>
+        <div className='shadow bg-white data-table-container'>
+          <table className='data-table '>
+            <thead className='data-table-thead shadow'>
               <tr>
                 <th>
                   Feedback ID

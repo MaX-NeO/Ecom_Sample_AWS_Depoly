@@ -5,6 +5,7 @@ import { userRegister } from '../../service/api';
 import { Navbar } from '../../components/Navbar';
 import { Footer } from './../../components/Footer';
 import { ToastContainer, toast } from 'react-toastify';
+import RegisterSVG from '../../assets/ico/register.webp';
 
 
 
@@ -14,7 +15,8 @@ export default function Register() {
         name: '',
         phone: 0,
         email: '',
-        password: ''
+        password: '',
+        address:''
     });
 
     const handleChange = (e) => {
@@ -71,14 +73,14 @@ export default function Register() {
                 <Navbar />
                 <div className='auth-container'>
                     <div className='auth-wrapper'>
-                        <form className='auth-form app-x-shadow' onSubmit={handleSubmit}>
-                            <h1 className='auth-heading'>Register</h1>
+                        <form className='auth-form-1 app-x-shadow' onSubmit={handleSubmit}>
+                            <img src={RegisterSVG} alt="login-img" className='auth-svg'/>
                             <input type="text" name="name" id="name" onChange={handleChange} placeholder='Name' className='auth-field' required />
                             <input type="number" name="phone" id="phone" onChange={handleChange} placeholder='Phone' className='auth-field' required />
                             <input type="email" name="email" id="email" onChange={handleChange} placeholder='Email' className='auth-field' required />
                             <input type="password" name="password" id="password" onChange={handleChange} placeholder='Password' className='auth-field' required />
-
-                            <button type='submit' className='auth-btn app-x-shadow'> Submit </button>
+                            <textarea name="address" id="address" cols="45" rows="5" placeholder='Address' onChange={handleChange} className='auth-field' required/>
+                            <button type='submit' className='auth-btn app-x-shadow'> Register </button>
                         </form>
                         <Link to='/login' className='auth-links'>Login</Link>
                     </div>

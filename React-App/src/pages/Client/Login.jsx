@@ -6,7 +6,7 @@ import Cookies from 'js-cookie';
 import { Navbar } from '../../components/Navbar';
 import { Footer } from './../../components/Footer';
 import { ToastContainer, toast } from 'react-toastify';
-
+import LoginSVG from '../../assets/ico/login.webp';
 
 
 
@@ -25,7 +25,8 @@ export default function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const res = await userLogin(signin);
-        if (res.status === 200) {
+        if ((res.data).slice(0,-2) == "Login_Auth") {
+            console.log(res.data)
             const getuid = (res.data).charAt((res.data).length - 1);
             console.log(getuid)
             const xUserData = await getUserbyId(getuid);
@@ -51,18 +52,7 @@ export default function Login() {
                 navigate('/user/dashboard');
             }, 1500);
 
-        } else if (res.status === 401) {
-            toast.error(` Invalid Password !`, {
-                position: "bottom-right",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
-        } else {
+        } else if (res.data == "Invalid_Email") {
             toast.error(` Invalid Email !`, {
                 position: "bottom-right",
                 autoClose: 1000,
@@ -73,6 +63,20 @@ export default function Login() {
                 progress: undefined,
                 theme: "light",
             });
+        } else if(res.data=="Invalid_Password") {
+            toast.error(`Invalid Password !`, {
+                position: "bottom-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        }
+        else{
+            console.log('error')
         }
     };
 
@@ -84,7 +88,8 @@ export default function Login() {
                 <div className='auth-container'>
                     <div className='auth-wrapper'>
                         <form className='auth-form app-x-shadow' onSubmit={handleSubmit}>
-                            <h1 className='auth-heading'>Login</h1>
+                            <img src={LoginSVG} alt="login-img" className='auth-svg'/>
+                            {/* <h1 className='auth-heading'>Login</h1> */}
                             <input type="email" name="email" id="email" onChange={handleChange} placeholder='Email' className='auth-field' required />
                             <input type="password" name="password" id="password" onChange={handleChange} placeholder='Password' className='auth-field' required />
 

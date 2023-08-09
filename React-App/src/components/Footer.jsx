@@ -5,7 +5,7 @@ export const Footer = () => {
     <div className='footer'>
         <div className='footer-container'>
             <div className='footer-l'>
-                Copyright 2023 @ Ecomm Inc
+                Copyright 2023 @ MaX Inc
             </div>
             <div className='footer-r'>
                 <Link to='/privacy'>Privacy Policy</Link>

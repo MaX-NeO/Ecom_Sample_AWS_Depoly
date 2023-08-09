@@ -59,9 +59,9 @@ const ViewProducts = () => {
     <>
       <Layout />
       <div className='mainx'>
-        <div className='shadow bg-white'>
+        <div className='shadow bg-white data-table-container'>
           <table className='data-table'>
-            <thead>
+            <thead className='data-table-thead shadow'>
               <tr>
                 <th>
                   Product

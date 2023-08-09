@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { ChevronLeftCircle } from 'lucide-react';
 import { addFeedback } from '../../service/api';
 import { ToastContainer, toast } from 'react-toastify';
+import FeedbackSVG from '../../assets/ico/feedback.webp';
 
 const Feedback = () => {
   const navigate = useNavigate()
@@ -51,12 +52,16 @@ const Feedback = () => {
       <div className='main'>
 
         <form className='data-content shadow bg-white' onSubmit={handleSubmit}>
-          <h3 className='data-title primary'>Feedback</h3>
+
+          <img src={FeedbackSVG} alt="login-img" className='auth-svg' />
+          {/* <h3 className='data-title primary'>Feedback</h3> */}
           <input type="text" name="uname" id="uname" placeholder='Name' className='data-input bg-secondary black' onChange={handleChange} required />
           <input type="email" name="uemail" id="uemail" placeholder='Email' className='data-input bg-secondary black' onChange={handleChange} required />
           <h5>Describe your experince</h5>
-          <input type='text' name='answer' id='answer' placeholder='Answer' className='data-input bg-secondary black' onChange={handleChange} required />
+          {/* <input type='text' name='answer' id='answer' placeholder='Answer' className='data-input bg-secondary black' onChange={handleChange} required /> */}
+          <textarea  name='answer' id='answer' placeholder='Answer' className='data-input bg-secondary black' onChange={handleChange} required  cols="45" rows="5"/>
           <button type="submit" className='data-btn bg-primary white'>Submit</button>
+
 
         </form>
 

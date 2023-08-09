@@ -5,15 +5,27 @@ import { Navbar } from '../../components/Navbar';
 import { Footer } from './../../components/Footer';
 import { useNavigate } from 'react-router-dom';
 import { PlusCircle, MinusCircle, Trash } from 'lucide-react';
-
+import { ToastContainer, toast } from 'react-toastify';
 
 const Cart = () => {
   const cartItems = useSelector(state => state.cart.items);
   const navigate = useNavigate()
   const dispatch = useDispatch();
 
-  const handleRemoveItem = (itemId) => {
+  const handleRemoveItem = (itemId, itemName) => {
+
     dispatch(removeFromCart(itemId));
+    
+    toast.success(`${itemName} removed from cart !`, {
+      position: "bottom-right",
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+  });
   };
 
 
@@ -36,20 +48,17 @@ const Cart = () => {
   return (
     <div className='main'>
       <Navbar />
-      <div className='cart-title-container'>
-
-      </div>
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
         <div>
           <div className='cart-title-container'>
-          <h1 className='cart-title primary'>Your Cart</h1>
-          <button className='cart-checkout-btn shadow' onClick={handleCheckout}>Checkout </button>
+            <h1 className='cart-title primary'>Your Cart</h1>
+            <button className='cart-checkout-btn shadow' onClick={handleCheckout}>Checkout </button>
           </div>
-          <div className='shadow bg-white'>
-            <table className='data-table'>
-              <thead>
+          <div className='shadow bg-white cart-table-container'>
+            <table className='cart-data-table'>
+              <thead className='cart-data-thead shadow'>
                 <tr>
                   <th>
                     Product
@@ -74,24 +83,38 @@ const Cart = () => {
                     <td> <img src={product.productimage} className='mini-product-img' /></td>
                     <td>{product.productname}</td>
                     <td>₹ {product.productprice}</td>
-                    <td className='d-flex-r'>
-                      <button className='data-btn-mini bg-white shadow' onClick={() => handleDecreaseQuantity(product.pid)}> <MinusCircle /> </button>
-                      <h3> {product.quantity}</h3>
-                      <button className='data-btn-mini bg-white shadow' onClick={() => handleIncreaseQuantity(product.pid)}> <PlusCircle /> </button>
+                    <td>
+                      <span className='d-flex-r'>
+                        <button className='data-btn-mini bg-white shadow' onClick={() => handleDecreaseQuantity(product.pid)}> <MinusCircle /> </button>
+                        <h3> {product.quantity}</h3>
+                        <button className='data-btn-mini bg-white shadow' onClick={() => handleIncreaseQuantity(product.pid)}> <PlusCircle /> </button>
+                      </span>
                     </td>
                     <td>
-                      <button className='data-btn-mini bg-white shadow' onClick={() => handleRemoveItem(product.pid)}><Trash color="#ff0000" /></button>
+                      <button className='data-btn-mini bg-white shadow' onClick={() => handleRemoveItem(product.pid, product.productname)}><Trash color="#ff0000" /></button>
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
-            <p className='cart-total'>Total: ₹{totalAmount}</p>
           </div>
+          <p className='cart-total'>Total: ₹{totalAmount}</p>
         </div>
       )}
 
 
+      <ToastContainer
+        position="bottom-right"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <Footer />
     </div>
   );

@@ -34,9 +34,9 @@ const UserPanel = () => {
                 <div className='titlebar'>
                     Order History
                 </div>
-                <div className='shadow bg-white'>
+                <div className='shadow bg-white data-table-container'>
                     <table className='data-table'>
-                        <thead>
+                        <thead className='data-table-thead shadow'>
                             <tr>
                                 <th>
                                     Date

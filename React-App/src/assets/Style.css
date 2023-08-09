@@ -1,6 +1,8 @@
 * {
     margin: 0;
     padding: 0;
+    -webkit-user-drag: none;
+    user-select: none;
 }
 
 body {
@@ -22,6 +24,7 @@ body {
     align-content: center;
     align-items: center;
     justify-content: center;
+    margin: 10rem 0rem 3rem 0rem;
 }
 
 .main {
@@ -124,7 +127,7 @@ body {
     border-collapse: collapse;
     column-gap: 1rem;
     text-align: center;
-    border: 1px solid blueviolet;
+    /* border: 1px solid blueviolet; */
 }
 
 .data-btn-mini {
@@ -222,7 +225,7 @@ thead {
     /* height: 50px !important; */
     background: blueviolet;
     /* border: 2px solid blueviolet; */
-    /* border-radius: 50% !important; */
+    border-radius: 50% !important;
 }
 
 .card-cli {
@@ -251,6 +254,7 @@ thead {
 .product-cli-img {
     width: 100px;
     border-radius: 10px;
+    height: 100px;
 }
 
 .product-cli-text {
@@ -295,6 +299,7 @@ thead {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 9999;
 }
 
 .navbar-container {
@@ -416,37 +421,54 @@ thead {
     align-items: center;
 }
 
-.etc-container {
-    width: 80vw;
+.etc-wrapper {
+    width: 90vw;
     background-color: #fff;
-    height: auto;
-    padding: 2rem 2rem;
+    height: 88vh;
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    border-radius: 15px;
+    border-radius: 5px;
+
 }
+
+.etc-container {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    gap: 1rem;
+    overflow-y: auto;
+}
+
 
 .etc-title {
     text-align: center;
     width: 100%;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    padding: 1rem 0rem;
 }
 
 .etc-data {
+    padding: 2rem;
     font-size: 1rem;
 }
 
 .cart-total {
     display: flex;
-    width: 95%;
-    padding: 1rem;
-    font-size: 1rem;
+    width: 100%;
+    font-size: 1.5rem;
     font-weight: bold;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     align-content: center;
-
+    background-color: #fff;
+    margin-top: 0.5rem;
+    height: 3rem;
 }
 
 .user-data-edit {
@@ -615,6 +637,7 @@ thead {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    margin: 1rem 0rem;
 }
 
 .cart-title {
@@ -684,12 +707,14 @@ thead {
     height: 25%;
     width: 100%;
 }
+
 .cart-r-3 {
     border: 1px solid blueviolet;
     height: 15%;
     width: 100%;
 }
-.checkout-btn{
+
+.checkout-btn {
     height: 5%;
     border: none;
     outline: none;
@@ -697,6 +722,7 @@ thead {
     font-weight: bold;
     cursor: pointer;
 }
+
 .order-element-title {
     height: 2rem;
     width: 100%;
@@ -738,7 +764,8 @@ thead {
 .order-element-data-r-1>h3 {
     padding-left: 3rem;
 }
-.order-element-data-r-2{
+
+.order-element-data-r-2 {
     display: flex;
     width: 15rem;
     font-size: 1.8rem;
@@ -746,8 +773,9 @@ thead {
     padding: 1rem;
     word-break: break-word;
 }
-.order-element-data-r-3{
-display: flex;
+
+.order-element-data-r-3 {
+    display: flex;
     /* width: 15rem; */
     font-size: 1.8rem;
     align-content: flex-start;
@@ -759,4 +787,177 @@ display: flex;
     align-items: center;
     flex-wrap: wrap;
     flex-direction: row;
+}
+
+*::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+}
+
+*::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: blueviolet;
+}
+
+.cart-table-container {
+    height: 70vh;
+    overflow-y: auto;
+    border: 1px solid blueviolet;
+}
+
+.cart-data-table {
+    width: 70vw;
+    height: auto;
+    border-collapse: collapse;
+    column-gap: 1rem;
+    text-align: center;
+    /* table-layout: fixed; */
+}
+
+.cart-data-thead {
+    border-bottom: 3px solid blueviolet;
+    position: sticky;
+    top: -1px;
+    background-color: #fff;
+}
+
+.data-table-container {
+    height: 80vh;
+    overflow-y: auto;
+    border: 1px solid blueviolet;
+}
+
+.data-table-thead {
+    border-bottom: 3px solid blueviolet;
+    position: sticky;
+    top: -1px;
+    background-color: #fff;
+}
+
+/* skeleton */
+
+
+.skeleton {
+    background: #e1e1e1;
+    border-radius: 4px;
+    height: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.skeleton::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -150px;
+    top: 0;
+    height: 100%;
+    width: 150px;
+    background: linear-gradient(to right,
+            transparent 0%,
+            #e8e8e8 50%,
+            transparent 100%);
+    animation: load 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes load {
+    from {
+        left: -150px;
+    }
+
+    to {
+        left: 100%;
+    }
+}
+
+/* order animation */
+
+.success-animation {
+    margin: 150px auto;
+}
+
+.checkmark {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 2;
+    stroke: #4bb71b;
+    stroke-miterlimit: 10;
+    box-shadow: inset 0px 0px 0px #4bb71b;
+    animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+    position: relative;
+    top: 5px;
+    right: 5px;
+    margin: 0 auto;
+}
+
+.checkmark__circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: #4bb71b;
+    fill: #fff;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+
+}
+
+.checkmark__check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes scale {
+
+    0%,
+    100% {
+        transform: none;
+    }
+
+    50% {
+        transform: scale3d(1.1, 1.1, 1);
+    }
+}
+
+@keyframes fill {
+    100% {
+        box-shadow: inset 0px 0px 0px 30px #4bb71b;
+    }
+}
+
+
+
+.order-message {
+    opacity: 0;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bold;
+    animation: Fadex 3s ease-in-out forwards;
+}
+
+@keyframes Fadex {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 100;
+    }
+}
+
+.auth-svg {
+    width: 5rem;
 }

@@ -135,6 +135,21 @@
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
+    align-items: center;
+}
+.auth-form-1 {
+    gap: 1rem;
+    height: 65vh;
+    width: 30vw;
+    border: none;
+    border-radius: 10px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .auth-field {
@@ -157,6 +172,7 @@
     border: none;
     font-weight: bold;
     cursor: pointer;
+    width: 65%;
 }
 .app-x-shadow{
     box-shadow:
@@ -199,4 +215,7 @@ a{
     padding-left: 2rem;
     justify-content: flex-start;
     border-left: 6px solid #ad16ff;
+}
+textarea{
+    resize: none;
 }

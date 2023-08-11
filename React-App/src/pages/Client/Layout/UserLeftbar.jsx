@@ -1,10 +1,9 @@
 import React,{useState} from 'react'
 import { useNavigate } from 'react-router-dom'
-import Cookies from 'js-cookie';
 
 function UserLeftbar() {
     
-    const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get('isUser') === 'true');
+    const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('isUser') === 'true');
     const navigate = useNavigate();
 
 
@@ -17,13 +16,7 @@ function UserLeftbar() {
     const logoutHandler = () => {
         if (isLoggedIn) {
             navigate('/login');
-             Cookies.remove('isUser');
-
-             Cookies.remove('xuserName')
-             Cookies.remove('xuserPhone')
-             Cookies.remove('xuserEmail')
-             Cookies.remove('xuserAddress')
-             Cookies.remove('xuserPassword')
+            localStorage.clear();
 
              setIsLoggedIn(false);
         } else {

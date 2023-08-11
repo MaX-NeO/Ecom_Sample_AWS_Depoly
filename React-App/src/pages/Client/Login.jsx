@@ -11,7 +11,7 @@ import LoginSVG from '../../assets/ico/login.webp';
 
 
 export default function Login() {
-    const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get('isUser') === 'true');
+    const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('isUser') === 'true');
     const navigate = useNavigate();
     const [signin, setSignin] = useState({
         email: '',
@@ -30,14 +30,13 @@ export default function Login() {
             const getuid = (res.data).charAt((res.data).length - 1);
             console.log(getuid)
             const xUserData = await getUserbyId(getuid);
-            Cookies.set('xuserName', xUserData.data.name, { expires: 2 });
-            Cookies.set('xuserEmail', xUserData.data.email, { expires: 2 });
-            Cookies.set('xuserPhone', xUserData.data.phone, { expires: 2 });
-            Cookies.set('xuserAddress', xUserData.data.address, { expires: 2 });
-            Cookies.set('xuserPassword', signin.password, { expires: 2 });
-
-            Cookies.set('xuserID', getuid, { expires: 2 });
-            Cookies.set('isUser', 'true', { expires: 2 });
+            localStorage.setItem('xuserName',xUserData.data.name);
+            localStorage.setItem('xuserEmail', xUserData.data.email);
+            localStorage.setItem('xuserPhone', xUserData.data.phone);
+            localStorage.setItem('xuserAddress', xUserData.data.address);
+            localStorage.setItem('xuserID', getuid);
+            localStorage.setItem('isUser', 'true');
+            
             toast.success(` Welcome ${xUserData.data.name} !`, {
                 position: "bottom-right",
                 autoClose: 1000,

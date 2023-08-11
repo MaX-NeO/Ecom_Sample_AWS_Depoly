@@ -2,12 +2,15 @@ import { useState,useEffect } from "react";
 import { Uploader } from "uploader";
 import { UploadDropzone } from "react-uploader";
 
-const uploader = Uploader({ apiKey: "public_kW15bYEDxDyFVFWDymiX77JdEn8Q" });
+const uploader = Uploader({ 
+  apiKey: "free"
+ });
+
 const uploaderOptions = {
   showFinishButton: true,
   styles: {
     colors: {
-      primary: "#377dff"
+      primary: "#8a2be2"
     }
   }
 };

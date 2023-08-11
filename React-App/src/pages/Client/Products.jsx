@@ -4,13 +4,12 @@ import { Navbar } from '../../components/Navbar'
 import { Footer } from '../../components/Footer'
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/cartSlice';
-import Cookies from 'js-cookie';
 import { ToastContainer, toast } from 'react-toastify';
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 const Products = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get('isUser') === 'true');
+    const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('isUser') === 'true');
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true)
     const fetchProducts = async () => {

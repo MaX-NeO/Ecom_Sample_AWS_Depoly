@@ -3,13 +3,12 @@ import { UserAuth } from './Auth/UserAuth'
 import { Navbar } from '../../components/Navbar'
 import UserLeftbar from './Layout/UserLeftbar'
 import { Footer } from '../../components/Footer'
-import Cookies from 'js-cookie'
 import { getUserOrders } from '../../service/api'
 
 
 const UserPanel = () => {
     const [orders, setOrders] = useState([])
-    const uid = Cookies.get('xuserID')
+    const uid = localStorage.getItem('xuserID')
 
     const fetchOrders = async () => {
         try {

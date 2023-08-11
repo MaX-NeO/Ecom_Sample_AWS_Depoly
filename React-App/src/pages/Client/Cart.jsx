@@ -6,6 +6,7 @@ import { Footer } from './../../components/Footer';
 import { useNavigate } from 'react-router-dom';
 import { PlusCircle, MinusCircle, Trash } from 'lucide-react';
 import { ToastContainer, toast } from 'react-toastify';
+import CartSVG from '../../assets/ico/cart.webp';
 
 const Cart = () => {
   const cartItems = useSelector(state => state.cart.items);
@@ -15,7 +16,7 @@ const Cart = () => {
   const handleRemoveItem = (itemId, itemName) => {
 
     dispatch(removeFromCart(itemId));
-    
+
     toast.success(`${itemName} removed from cart !`, {
       position: "bottom-right",
       autoClose: 4000,
@@ -25,7 +26,7 @@ const Cart = () => {
       draggable: true,
       progress: undefined,
       theme: "light",
-  });
+    });
   };
 
 
@@ -49,7 +50,10 @@ const Cart = () => {
     <div className='main'>
       <Navbar />
       {cartItems.length === 0 ? (
-        <p>Your cart is empty.</p>
+        <div className='cart-empty shadow card'>
+          <img src={CartSVG} alt="login-img" className='auth-svg' />
+          <p>Your cart is empty</p>
+        </div>
       ) : (
         <div>
           <div className='cart-title-container'>
@@ -98,7 +102,7 @@ const Cart = () => {
               </tbody>
             </table>
           </div>
-          <p className='cart-total'>Total: ₹{totalAmount}</p>
+          <p className='cart-total card'>Total: ₹{totalAmount}</p>
         </div>
       )}
 

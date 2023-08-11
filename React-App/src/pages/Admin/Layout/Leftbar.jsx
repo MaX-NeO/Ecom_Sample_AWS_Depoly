@@ -23,6 +23,7 @@ function Leftbar() {
         if (isLoggedIn) {
             navigate('/Admin/login');
             Cookies.remove('isAdmin');
+            Cookies.remove('emailz');
             setIsLoggedIn(false);
         } else {
             navigate('/Admin/login');

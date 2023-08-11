@@ -3,17 +3,16 @@ import { UserAuth } from './Auth/UserAuth'
 import { Navbar } from '../../components/Navbar'
 import UserLeftbar from './Layout/UserLeftbar'
 import { Footer } from '../../components/Footer'
-import Cookies from 'js-cookie'
 import { editUser } from '../../service/api'
 export const Settings = () => {
     
-    const uid =Cookies.get('xuserID')
+    const uid =localStorage.getItem('xuserID')
     const [editData, setEditData] = useState({
-        name: Cookies.get('xuserName'),
-        phone: Cookies.get('xuserPhone'),
-        email: Cookies.get('xuserEmail'),
-        address: Cookies.get('xuserAddress'),
-        password:Cookies.get('xuserPassword')
+        name: localStorage.getItem('xuserName'),
+        phone: localStorage.getItem('xuserPhone'),
+        email: localStorage.getItem('xuserEmail'),
+        address: localStorage.getItem('xuserAddress'),
+        password:localStorage.getItem('xuserPassword')
     })
     const [edit, setEdit] = useState(false)
     const handleEdit = () => {
@@ -21,9 +20,9 @@ export const Settings = () => {
     }
     const handleSave = async() => {
         await editUser(uid,editData)
-        Cookies.set('xuserName', editData.name, { expires: 2 });
-        Cookies.set('xuserPhone', editData.phone, { expires: 2 });
-        Cookies.set('xuserAddress', editData.address, { expires: 2 });
+        localStorage.setItem('xuserName', editData.name);
+        localStorage.setItem('xuserPhone', editData.phone);
+        localStorage.setItem('xuserAddress', editData.address);
 
 
         setEdit(!edit)

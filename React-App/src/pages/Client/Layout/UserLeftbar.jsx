@@ -15,10 +15,10 @@ function UserLeftbar() {
     }
     const logoutHandler = () => {
         if (isLoggedIn) {
-            navigate('/login');
             localStorage.clear();
+            navigate('/login');
 
-             setIsLoggedIn(false);
+            //  setIsLoggedIn(false);
         } else {
             navigate('/login');
         }

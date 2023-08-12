@@ -1,10 +1,9 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Cookies from 'js-cookie';
 
 function Leftbar() {
-    
-    const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get('isAdmin') === 'true');
+
+    const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('isAdmin') === 'true');
     const navigate = useNavigate();
 
     const dashboardHandler = () => {
@@ -22,8 +21,7 @@ function Leftbar() {
     const logoutHandler = () => {
         if (isLoggedIn) {
             navigate('/Admin/login');
-            Cookies.remove('isAdmin');
-            Cookies.remove('emailz');
+            localStorage.clear();
             setIsLoggedIn(false);
         } else {
             navigate('/Admin/login');

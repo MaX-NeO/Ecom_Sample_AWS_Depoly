@@ -4,9 +4,13 @@ import { Navbar } from '../../components/Navbar'
 import UserLeftbar from './Layout/UserLeftbar'
 import { Footer } from '../../components/Footer'
 import { editUser } from '../../service/api'
+import CryptoJS from 'crypto-js'
+
 export const Settings = () => {
-    
-    const uid =localStorage.getItem('xuserID')
+    const __enc_auth_u= localStorage.getItem('__enc_auth_u')
+    const __enc_auth_k= localStorage.getItem('__enc_auth_k')
+    const uid =CryptoJS.AES.decrypt(__enc_auth_u,__enc_auth_k).toString(CryptoJS.enc.Utf8);
+
     const [editData, setEditData] = useState({
         name: localStorage.getItem('xuserName'),
         phone: localStorage.getItem('xuserPhone'),
@@ -34,7 +38,7 @@ export const Settings = () => {
     }
     return (
         <div className='mainx'>
-            <UserAuth />
+            {/* <UserAuth /> */}
             <Navbar />
             <UserLeftbar />
             <div className='titlebar'>

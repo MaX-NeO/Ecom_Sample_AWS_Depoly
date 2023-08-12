@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Home, Hexagon, ShoppingCart, User } from 'lucide-react'
-import Cookies from 'js-cookie'
 
 export const Navbar = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get('isUser') === 'true');
+    const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('isUser') === 'true');
     const navigate = useNavigate();
     const homeRoute = () => {
         navigate('/')

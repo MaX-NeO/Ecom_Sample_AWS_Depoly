@@ -1,10 +1,9 @@
 import React from 'react'
-import Cookies from 'js-cookie'
 
 
 
 function Topbar() {
-const email = Cookies.get('emailz');
+const email = localStorage.getItem('emailz');
 
     return (
         <>

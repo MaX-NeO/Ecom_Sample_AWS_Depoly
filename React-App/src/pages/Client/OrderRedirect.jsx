@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import CompletedSVG from '../../assets/ico/completed.webp';
 const OrderRedirect = () => {
   const navigate = useNavigate()
   setTimeout(()=>{
@@ -15,6 +16,9 @@ const OrderRedirect = () => {
         <p className='order-message green' >
           Order Confirmed !
         </p>
+      </div>
+      <div className='order-svg'>
+        <img src={CompletedSVG} alt="login-img" className='auth-svg' />
       </div>
     </>
   )

@@ -3,13 +3,12 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { adminLogin } from '../../service/api';
 import { Home } from 'lucide-react';
-import Cookies from 'js-cookie';
 import { ToastContainer, toast } from 'react-toastify';
 
 
 
 export default function AdminLogin() {
-    const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get('isAdmin') === 'true');
+    const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('isAdmin') === 'true');
     const navigate = useNavigate();
     const [signin, setSignin] = useState({
         email: '',
@@ -25,8 +24,8 @@ export default function AdminLogin() {
         const res = await adminLogin(signin);
         if (res.data === "Login Successful !") {
 
-            Cookies.set('emailz', signin.email);
-            Cookies.set('isAdmin', 'true');
+            localStorage.setItem('emailz', signin.email);
+            localStorage.setItem('isAdmin', 'true');
             toast.success(`Welcome Admin !`, {
                 position: "bottom-right",
                 autoClose: 1000,

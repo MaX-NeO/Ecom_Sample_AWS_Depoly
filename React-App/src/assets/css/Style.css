@@ -970,3 +970,12 @@ thead {
     flex-direction: column;
     gap: 1rem;
 }
+.order-svg{
+    position: absolute;
+    bottom: 10vh;
+    display: flex;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+
+}

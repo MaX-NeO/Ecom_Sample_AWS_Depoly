@@ -5,12 +5,17 @@ import { useNavigate } from 'react-router-dom';
 import { addOrder } from '../../service/api';
 import { useDispatch } from 'react-redux';
 import { removeAllFromCart } from '../../redux/cartSlice';
+import CryptoJS from 'crypto-js';
 
 const Checkout = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [ordered, setOrdered] = useState(false);
-    const uid = localStorage.getItem('xuserID')
+    const __enc_auth_u= localStorage.getItem('__enc_auth_u')
+    const __enc_auth_k= localStorage.getItem('__enc_auth_k')
+    const uid =CryptoJS.AES.decrypt(__enc_auth_u,__enc_auth_k).toString(CryptoJS.enc.Utf8);
+
+
     const name = localStorage.getItem('xuserName')
     const phone = localStorage.getItem('xuserPhone')
     const email = localStorage.getItem('xuserEmail')
@@ -61,7 +66,7 @@ const Checkout = () => {
     }
     return (
         <>
-            <UserAuth />
+            {/* <UserAuth /> */}
             <div className='main'>
                 <div className='order-data'>
 

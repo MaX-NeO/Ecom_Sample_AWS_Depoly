@@ -26,7 +26,7 @@ export default function AdminLogin() {
 
             localStorage.setItem('emailz', signin.email);
             localStorage.setItem('isAdmin', 'true');
-            toast.success(`Welcome Admin !`, {
+            toast.success(`Welcome M-A-X !`, {
                 position: "bottom-right",
                 autoClose: 1000,
                 hideProgressBar: false,

@@ -6,6 +6,7 @@ import './assets/css/Style.css'
 import './assets/css/Colors.css'
 import './assets/css/Layout.css'
 import './assets/css/404.css'
+import './assets/css/Addon.css'
 import 'react-toastify/dist/ReactToastify.min.css';
 import { Provider } from 'react-redux'
 import store from './redux/store.js'

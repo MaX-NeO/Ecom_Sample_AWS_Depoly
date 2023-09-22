@@ -376,7 +376,12 @@ thead {
     gap: 6vw;
 
 }
-
+.social-container{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: 10vw;
+}
 .home-l {
     width: 38vw;
     display: flex;

@@ -21,6 +21,7 @@ import { Settings } from './pages/Client/Settings'
 import Checkout from './pages/Client/Checkout'
 import OrderRedirect from './pages/Client/OrderRedirect'
 import Error404 from './pages/Error/Error404';
+import { FAQ } from './pages/etc/FAQ'
 
 
 const App = () => {
@@ -84,6 +85,7 @@ const App = () => {
         <Route exact path='/feedback' element={<Feedback />} />
         <Route exact path='/privacy' element={<Privacy />} />
         <Route exact path='/terms' element={<Terms />} />
+        <Route exact path='/faq' element={<FAQ />} />
         <Route path='*' element={<Error404/>}/>
       </Routes>
     </>

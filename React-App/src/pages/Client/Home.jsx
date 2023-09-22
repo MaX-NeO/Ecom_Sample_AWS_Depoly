@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Navbar } from '../../components/Navbar'
 import { Footer } from '../../components/Footer'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { Facebook, Instagram, Github } from 'lucide-react'
 const Home = () => {
-    const nav= useNavigate()
+    const nav = useNavigate()
 
-    const routeProducts = ()=>{
+    const routeProducts = () => {
         nav('/products')
     }
 
@@ -59,6 +60,17 @@ const Home = () => {
                     </div>
 
                 </div>
+            </div>
+            <div className="social-container">
+                <Link to='https://www.facebook.com'>
+                    <Facebook color="#004cff" />
+                </Link>
+                <Link to='https://www.instagram.com'>
+                    <Instagram color="#ff0059" />
+                </Link>
+                <Link to='https://www.github.com'>
+                    <Github color="#000000" />
+                </Link>
             </div>
             <Footer />
         </div>

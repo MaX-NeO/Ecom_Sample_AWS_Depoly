@@ -11,11 +11,11 @@ const headers = {
 };
 
 //appserver endpoint
-const URI = 'http://3.108.62.137:8080'
+const URI = 'http://15.207.14.101:8080'
 // const URI = 'http://localhost:8080'
 
 //feedback endpoint
-const URI2 = 'http://3.108.62.137:8081'
+const URI2 = 'http://15.207.14.101:8081'
 // const URI2 = 'http://localhost:8081'
 
 //endpoint 1

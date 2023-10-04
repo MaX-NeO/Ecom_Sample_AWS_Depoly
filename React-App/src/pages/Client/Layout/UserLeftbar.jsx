@@ -1,11 +1,11 @@
 import React,{useState} from 'react'
 import { useNavigate } from 'react-router-dom'
-
+import { useDispatch } from 'react-redux';
+import { removeAllFromCart } from '../../../redux/cartSlice';
 function UserLeftbar() {
     
-    const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('isUser') === 'true');
     const navigate = useNavigate();
-
+    const dispatch = useDispatch();
 
     const orderHandler = () => {
         navigate('/user/dashboard')
@@ -14,14 +14,9 @@ function UserLeftbar() {
         navigate('/user/settings')
     }
     const logoutHandler = () => {
-        if (isLoggedIn) {
             localStorage.clear();
+            dispatch(removeAllFromCart());
             navigate('/login');
-
-            //  setIsLoggedIn(false);
-        } else {
-            navigate('/login');
-        }
     }
     return (
         <>

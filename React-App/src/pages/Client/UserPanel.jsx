@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { UserAuth } from './Auth/UserAuth';
 import { Navbar } from '../../components/Navbar';
 import UserLeftbar from './Layout/UserLeftbar';
 import { Footer } from '../../components/Footer';
@@ -34,7 +33,6 @@ const UserPanel = () => {
 
     return (
         <>
-            <UserAuth />
             <Navbar />
             <UserLeftbar />
             <div className='mainx'>

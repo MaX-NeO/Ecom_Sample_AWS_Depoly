@@ -481,9 +481,9 @@ thead {
     justify-content: center;
     width: 70vw;
     height: 60vh;
-    background-image: url('./images/bg.svg');
+    /* background-image: url('./images/bg.svg');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
     border-radius: 15px;
 }
 
@@ -543,7 +543,7 @@ thead {
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     flex-wrap: wrap;
     align-content: center;
     border-top-left-radius: 15px;

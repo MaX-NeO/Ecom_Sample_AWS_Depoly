@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { UserAuth } from './Auth/UserAuth';
 import { useNavigate } from 'react-router-dom';
 import { addOrder } from '../../service/api';
 import { useDispatch } from 'react-redux';
@@ -66,7 +65,6 @@ const Checkout = () => {
     }
     return (
         <>
-            {/* <UserAuth /> */}
             <div className='main'>
                 <div className='order-data'>
 

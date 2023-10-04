@@ -22,6 +22,7 @@ import Checkout from './pages/Client/Checkout'
 import OrderRedirect from './pages/Client/OrderRedirect'
 import Error404 from './pages/Error/Error404';
 import { FAQ } from './pages/etc/FAQ'
+import { UserAuth } from './pages/Client/Auth/UserAuth'
 
 
 const App = () => {
@@ -32,43 +33,17 @@ const App = () => {
         <Route exact path='/' element={<Home />} />
         <Route exact path='/products' element={<Products />} />
         <Route exact path='/cart' element={<Cart />} />
-
         <Route exact path='/register' element={<Register />} />
         <Route exact path='/login' element={<Login />} />
 
+        <Route element={<UserAuth/>}>
+        <Route exact path="/user/dashboard" element={<UserPanel />} />
+        <Route exact path='/user/settings' element={<Settings />} />
+        <Route exact path='/checkout' element={<Checkout />} />
+        <Route exact path='/order/success' element={<OrderRedirect />} />
+        </Route>
 
-        <Route path="/user/dashboard" element={<UserPanel /> } />
-        <Route
-          path='/user/settings'
-          element={
-            localStorage.getItem('isUser') === 'true' ? (
-              <Settings />
-            ) : (
-              <Navigate replace to='/login' />
-            )
 
-          }
-        />
-        <Route
-          path='/checkout'
-          element={
-            localStorage.getItem('isUser') === 'true' ? (
-              <Checkout />
-            ) : (
-              <Navigate replace to='/login' />
-            )
-          }
-        />
-        <Route
-          path='/order/success'
-          element={
-            localStorage.getItem('isUser') === 'true' ? (
-              <OrderRedirect />
-            ) : (
-              <Navigate replace to='/login' />
-            )
-          }
-        />
 
         <Route exact path='/admin/dashboard' element={<Dashboard />} />
         <Route exact path='/admin/login' element={<AdminLogin />} />
@@ -79,14 +54,14 @@ const App = () => {
 
         <Route exact path='/admin/users/view' element={<ViewUsers />} />
         <Route exact path='/admin/user/edit/:userId' element={<EditUser />} />
-
         <Route exact path='/admin/feedbacks/view' element={<ViewFeedbacks />} />
 
         <Route exact path='/feedback' element={<Feedback />} />
         <Route exact path='/privacy' element={<Privacy />} />
         <Route exact path='/terms' element={<Terms />} />
         <Route exact path='/faq' element={<FAQ />} />
-        <Route path='*' element={<Error404/>}/>
+
+        <Route path='*' element={<Error404 />} />
       </Routes>
     </>
   )
